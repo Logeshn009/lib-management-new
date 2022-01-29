@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+  
+<head>
+    <title>Book Details</title>
+  
+    <!-- CSS -->
+    <style>
+        table {
+            border-collapse: inset;
+            width: 100%;
+            tab-size: unset;
+        }
+  
+        th{
+            text-align: center;
+            padding: 8px;
+            font-family: sans-serif;
+            font-weight: bold;
+            font-size: 30px;
+        
+        }
+        td {
+            text-align: left;
+            padding: 20px;
+            font-family: sans-serif;
+            font-weight: bold;
+        }
+  
+        tr:nth-child(even) {
+            background-color: darkorange
+        }
+  
+        tr:nth-child(odd) {
+            background-color: yellow
+        }
+        th {
+            background-color: rgb(55, 12, 211);
+            color: rgb(255, 255, 255);
+        }
+  
+        .button {
+            position: relative;
+            text-align: center;
+            padding: 20px;
+            border: 4px solid rgb(55, 12, 211);
+            background: rgb(255, 217, 0);
+            color: rgb(55, 12, 211);
+            outline: none;
+            border-radius: 10px;
+            font-size: 30px;
+            width: 400px;
+  
+        }
+  
+        .button:hover {
+            color: black;
+            background: darkorange;
+        }
+    </style>
+  
+    <!--JavaScript-->
+    <script>
+        function loadXMLDoc() {
+            var xmlhttp = new XMLHttpRequest();
+            xmlhttp.onreadystatechange = function () {
+  
+                // Request finished and response 
+                // is ready and Status is "OK"
+                if (this.readyState == 4 && this.status == 200) {
+                    bookdetails(this);
+                }
+            };
+  
+            // books.xml is the external xml file
+            xmlhttp.open("GET", "books.xml", true);
+            xmlhttp.send();
+        }
+  
+        function bookdetails(xml) {
+            var i;
+            var xmlDoc = xml.responseXML;
+            var table =
+                `<tr><th>Title</th><th>Author</th>
+                    <th>Year</th><th>Price</th><th>ISBN</th>
+                </tr>`;
+                
+            var x = xmlDoc.getElementsByTagName("book");
+            
+  
+            // Start to fetch the data by using TagName 
+            for (i = 0; i < x.length; i++) {
+                table += "<tr><td>" +
+                    x[i].getElementsByTagName("title")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("author")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("year")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("price")[0]
+                    .childNodes[0].nodeValue + "</td><td>" +
+                    x[i].getElementsByTagName("isbn")[0]
+                    .childNodes[0].nodeValue + "</td><td>";
+            }
+  
+            // Print the xml data in table form
+            document.getElementById("id").innerHTML = table;
+        }
+</script>
+<script>
+        function loadXMLdoc(xname) {
+        if (window.XMLHttpRequest) {
+          xhttp = new XMLHttpRequest();
+        } else {
+          xhttp = new ActiveXObject("Microsoft.XMLHTTP");
+        }
+        xhttp.open("GET", xname, false);
+        xhttp.send();
+        return xhttp.responseXML;
+      }
+      function remove(node) {
+        xmlDoc1 = loadXMLdoc("books.xml");
+        y = xmlDoc1.getElementsByTagName(node)[0];
+        xmlDoc1.documentElement.removeChild(y);
+        alert("The 1st Element " + node + " "+"has been removed!");
+      }
+      function show(element) {
+        x = xmlDoc1.getElementsByTagName(element);
+        for (i = 0; i < x.length; i++) {
+          document.write(x[i].childNodes[0].nodeValue);
+          document.write("<br\>");
+        }
+      }
+      </script>
+</head>
+  
+<body>
+    <center>
+        <button type="button" class="button" 
+            onclick="loadXMLDoc()">
+            Get Book Details
+        </button>
+    </center>
+    <input type="button" value="Remove" onclick="remove('book')" />
+    <input type="button" value="Show" onclick="show('author')" />
+    <br><br>
+    <table id="id"></table>
+</body>  
+</html>

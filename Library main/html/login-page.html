@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Login Page</title>
+    <link rel="stylesheet" href="/Library main/css/login-page.css" />
+  </head>
+  <body>
+    <section>
+      <form class="box" action="login-page.html" method="get">
+        <h1>---- NEW REGISTRATION ----</h1>
+        <br />
+        <div>
+          <label for="fname">First Name</label>
+          <input type="text" id="fname" placeholder="First Name" />
+          <span></span>
+        </div>
+        <div>
+          <label for="lname">Last Name</label>
+          <input type="text" id="lname" placeholder="Last Name" />
+          <span></span>
+        </div>
+        <div>
+          <label for="email">Email-ID</label>
+          <input type="email" id="email" placeholder="Email-id" />
+          <span></span>
+        </div>
+        <div>
+          <label for="number">Phone-Number</label>
+          <input type="number" id="number" placeholder="Phone-Number" />
+          <span></span>
+        </div>
+        <div>
+          <label for="age">Age</label>
+          <input type="number" id="age" placeholder="Age" />
+          <span></span>
+        </div>
+        <div>
+          <label for="password">Password</label>
+          <input type="password" name="password" id="psw" />
+          <span></span>
+        </div>
+
+        <button onclick="myFunction()" type="submit">Submit</button>
+        <button type="reset" value="Reset">Reset</button>
+      </form>
+    </section>
+  </body>
+</html>
+<script>
+  var fname = document.getElementById("fname");
+  var lname = document.getElementById("lname");
+  var email = document.getElementById("email");
+  var number = document.getElementById("number");
+  var age = document.getElementById("age");
+  var psw = document.getElementById("psw");
+  var span = document.getElementsByTagName("span");
+  fname.onkeydown = function () {
+    const regexname1 = /^[a-zA-Z ]{2,30}$/;
+    if (regexname1.test(fname.value)) {
+      span[0].innerText = "Your Name is Valid";
+      span[0].style.color = "green";
+    } else {
+      span[0].innerText = "Enter only characters";
+      span[0].style.color = "red";
+    }
+  };
+  lname.onkeydown = function () {
+    const regexname2 = /^[a-zA-Z ]{2,30}$/;
+    if (regexname2.test(lname.value)) {
+      span[1].innerText = "Your Name is Valid";
+      span[1].style.color = "green";
+    } else {
+      span[1].innerText = "Enter only characters";
+      span[1].style.color = "red";
+    }
+  };
+  email.onkeydown = function () {
+    const regex1 = /^[a-z0-9](\.?[a-z0-9]){3,}@deeshschool\.in$/;
+    if (regex1.test(email.value)) {
+      span[2].innerText = "Your Email is Valid";
+      span[2].style.color = "green ";
+    } else {
+      span[2].innerText = "Invalid Email Id";
+      span[2].style.color = "red";
+    }
+  };
+  number.onkeydown = function () {
+    const regnum = /^[0-9]{10}$/;
+    if (regnum.test(number.value)) {
+      span[3].innerText = "Your Number is Valid";
+      span[3].style.color = "green";
+    } else {
+      span[3].innerText = "Invalid Phone Number";
+      span[3].style.color = "red";
+    }
+  };
+  age.onkeydown = function () {
+    const regage = /^[0-9]{1}$/;
+    if (regage.test(age.value)) {
+      span[4].innerText = "Your age is Valid";
+      span[4].style.color = "green";
+    } else {
+      span[4].innerText = "invalid age";
+      span[4].style.color = "red";
+    }
+  };
+  psw.onkeydown = function () {
+    const regxpsw =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    if (regxpsw.test(psw.value)) {
+      span[5].innerText = "Valid password";
+      span[5].style.color = "green";
+    } else {
+      span[5].innerText =
+        "a minimum of 1 lower case letter [a-z] and a minimum of 1 upper case letter [A-Z] and  a minimum of 1 numeric character [0-9] and 1 special character:~`!@#$%^&*()-_+={}[]|\;:<>,./?";
+      span[5].style.color = "red";
+    }
+  };
+  function myFunction() {
+    alert("Registered!!!");
+  }
+</script>

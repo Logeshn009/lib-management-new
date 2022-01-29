@@ -1,0 +1,78 @@
+@media (min-width: 320px) and (max-width: 2000px) {
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    background-size: cover;
+    background-color: #ebe081;
+  }
+  @media (min-width: 320px) and (max-width: 2000px) {
+    .box {
+      width: 350px;
+      height: 350px;
+      padding: 30px;
+      position: absolute;
+      box-shadow: none;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #700fee;
+      text-align: center;
+    }
+  }
+  .box h1 {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 700;
+  }
+  .box input[type="text"],
+  .box input[type="email"],
+  .box input[type="password"] {
+    border: 0;
+    background: white;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 5px solid #ee390f;
+    padding: 14px 20px;
+    width: 220px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25px;
+  }
+  .box input[type="text"]:focus,
+  .box input[type="email"]:focus,
+  .box input[type="password"]:focus {
+    width: 270px;
+    border-color: #f9b700;
+  }
+  .box button[type="submit"] {
+    border: 0;
+    background: none;
+    display: block;
+    margin: 20px auto;
+    text-align: center;
+    border: 5px solid #f9b700;
+    padding: 14px 30px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .box input[type="submit"]:hover {
+    background-image: linear-gradient(
+      to right,
+      #700fee 0%,
+      #f9b700 51%,
+      #ee390f 100%
+    );
+  }
+}
+::placeholder {
+  color: black;
+  opacity: 70%;
+}

@@ -1,0 +1,116 @@
+@media (min-width: 320px) and (max-width: 2000px) {
+  body {
+    background: #ebe081;
+    background-size: cover;
+    margin: 0px;
+    padding: 0px;
+    font-family: "Courier New", Courier, monospace;
+    /* background-size: 100% 100%; */
+  }
+  form {
+    border-radius: 25px;
+    border: 20px outset #ee390f;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+  }
+
+  .box {
+    width: 500px;
+    height: 1200px;
+    padding: 30px;
+    position: absolute;
+    box-shadow: none;
+    top: 90%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgb(0, 0, 0);
+    text-align: center;
+  }
+
+  .box h1 {
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: xx-large;
+    background-color: black;
+  }
+
+  section {
+    width: 100px;
+    height: 100%;
+    margin: 100px auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  div {
+    width: 100%;
+    margin: 15px auto;
+  }
+  label {
+    padding: 10px;
+    font-size: 10px;
+    color: rgb(255, 255, 255);
+    text-transform: uppercase;
+    font-weight: 700;
+    font-size: large;
+  }
+  .box input[type="text"],
+  .box input[type="email"],
+  .box input[type="password"],
+  .box input[type="number"] {
+    border: 0;
+    background: white;
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+    border: 5px solid #ee390f;
+    padding: 14px 20px;
+    width: 300px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25px;
+  }
+  .box input[type="text"]:focus,
+  .box input[type="email"]:focus {
+    width: 350px;
+    border-color: #f9b700;
+  }
+  .box button[type="submit"],
+  .box button[type="reset"] {
+    border: 0;
+    background: none;
+    display: outset;
+    margin: 50px auto;
+    text-align: center;
+    border: 5px solid #f9b700;
+    padding: 14px 30px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .box button[type="submit"]:hover,
+  .box button[type="reset"]:hover {
+    background-image: linear-gradient(
+      to right,
+      #700fee 0%,
+      #f9b700 51%,
+      #ee390f 100%
+    );
+  }
+  span {
+    display: unset;
+    margin-left: 10px;
+    color: red;
+    background-color: none;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+    background: rgba(255, 255, 255, 0.897);
+  }
+}

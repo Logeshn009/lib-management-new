@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Library Book details</title>
+    <script type="text/javascript">
+      function display() {
+        var x = document.getElementById("test");
+        var y = x.getElementsByTagName("title")[2];
+        var name =
+          "title :" + y.getElementsByTagName("title")[0].firstChild.nodeValue;
+        var age =
+          "author:" + y.getElementsByTagName("author")[0].firstChild.nodeValue;
+        var salary =
+          "price :" + y.getElementsByTagName("price")[0].firstChild.data;
+        alert("Book Details:\n\n" + title + "\n" + author + "\n" + price);
+      }
+    </script>
+  </head>
+  <body>
+    <xml id="test" style="display: none">
+      <bookstore>
+        <book category="cooking">
+          <title lang="en">Everyday Italian</title>
+          <author>Giada De Laurentiis</author>
+          <year>2005</year>
+          <price>300</price>
+        </book>
+        <book category="children">
+          <title lang="en">Harry Potter</title>
+          <author>J K. Rowling</author>
+          <year>2005</year>
+          <price>299</price>
+        </book>
+        <book category="web">
+          <title lang="en">XQuery Kick Start</title>
+          <author>James McGovern</author>
+          <author>Per Bothner</author>
+          <author>Kurt Cagle</author>
+          <author>James Linn</author>
+          <author>Vaidyanathan Nagarajan</author>
+          <year>2003</year>
+          <price>499</price>
+        </book>
+        <book category="web" cover="paperback">
+          <title lang="en">Learning XML</title>
+          <author>Erik T. Ray</author>
+          <year>2003</year>
+          <price>395</price>
+        </book>
+      </bookstore>
+    </xml>
+    <a href="javascript:display()">Book Details</a>
+  </body>
+</html>
