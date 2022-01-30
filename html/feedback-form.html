@@ -5,147 +5,14 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Feedback form</title>
-    <style>
-      /* The container */
-      .container {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      /* Hide the browser's default radio button */
-      .container input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-      }
-
-      /* Create a custom radio button */
-      .checkmark {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-        border-radius: 50%;
-      }
-
-      /* On mouse-over, add a grey background color */
-      .container:hover input ~ .checkmark {
-        background-color: #ccc;
-      }
-
-      /* When the radio button is checked, add a blue background */
-      .container input:checked ~ .checkmark {
-        background-color: #2196f3;
-      }
-
-      /* Create the indicator (the dot/circle - hidden when not checked) */
-      .checkmark:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }
-
-      /* Show the indicator (dot/circle) when checked */
-      .container input:checked ~ .checkmark:after {
-        display: block;
-      }
-
-      /* Style the indicator (dot/circle) */
-      .container .checkmark:after {
-        top: 9px;
-        left: 9px;
-        width: 8px;
-        height: 8px;
-        border-radius: 50%;
-        background: white;
-      }
-
-      /* The container */
-      .container1 {
-        display: block;
-        position: relative;
-        padding-left: 35px;
-        margin-bottom: 12px;
-        cursor: pointer;
-        font-size: 22px;
-        -webkit-user-select: none;
-        -moz-user-select: none;
-        -ms-user-select: none;
-        user-select: none;
-      }
-
-      /* Hide the browser's default checkbox */
-      .container1 input {
-        position: absolute;
-        opacity: 0;
-        cursor: pointer;
-        height: 0;
-        width: 0;
-      }
-
-      /* Create a custom checkbox */
-      .checkmark1 {
-        position: absolute;
-        top: 0;
-        left: 0;
-        height: 25px;
-        width: 25px;
-        background-color: #eee;
-      }
-
-      /* On mouse-over, add a grey background color */
-      .container1:hover input ~ .checkmark1 {
-        background-color: #ccc;
-      }
-
-      /* When the checkbox is checked, add a blue background */
-      .container1 input:checked ~ .checkmark1 {
-        background-color: #2196f3;
-      }
-
-      /* Create the checkmark/indicator (hidden when not checked) */
-      .checkmark1:after {
-        content: "";
-        position: absolute;
-        display: none;
-      }
-
-      /* Show the checkmark when checked */
-      .container1 input:checked ~ .checkmark1:after {
-        display: block;
-      }
-
-      /* Style the checkmark/indicator */
-      .container1 .checkmark1:after {
-        left: 9px;
-        top: 5px;
-        width: 5px;
-        height: 10px;
-        border: solid white;
-        border-width: 0 3px 3px 0;
-        -webkit-transform: rotate(45deg);
-        -ms-transform: rotate(45deg);
-        transform: rotate(45deg);
-      }
-    </style>
+    <link rel="stylesheet" href="/css/feedback.css" />
   </head>
   <body>
     <section>
-      <form class="box" action="login-page.html" method="get">
+      <form class="box" action="" method="get">
         <h1>Christ University - Bangalore</h1>
         <h3>Campus Feedback</h3>
         <br />
-        <div>
           <label for="fname">Enter Name</label>
           <input type="text" id="fname" placeholder="Name" />
           <span></span>
@@ -155,7 +22,11 @@
           <input type="email" id="email" placeholder="Email-id" />
           <span></span>
         </div>
-        <div></div>
+        <div>
+          <label for="password">Enter Password</label>
+          <input type="password" id="password" placeholder="Password" />
+          <span></span>
+        </div>
         <div>
           <h1>What do you like about the Christ University campus?</h1>
           <label class="container1"
@@ -202,17 +73,71 @@
             <span class="checkmark"></span>
           </label>
           <label class="container"
-            >Four
+            >Other
             <input type="radio" name="radio" />
             <span class="checkmark"></span>
           </label>
         </div>
         <div>
           <textarea rows="10" cols="50" name="comment" form="usrform">
-                Enter text here...</textarea
+                Add comments...</textarea
           >
         </div>
+        <div>
+          <button for="submit">Submit</button>
+          <span></span>
+        </div>
+        <div>
+          <div>
+            <button for="reset">Submit</button>
+            <span></span>
+          </div>
+          <div>
       </form>
     </section>
   </body>
 </html>
+<script>
+  function myfunction() {
+    var fname = document.getElementById("fname");
+    var email = document.getElementById("email");
+    var psw = document.getElementById("password");
+    var span = document.getElementsByTagName("span");
+    fname.onkeydown = function () {
+      const regexname1 = /^[a-zA-Z]+(\s[a-zA-Z]+)+?$/;
+      if (regexname1.test(fname.value)) {
+        span[0].innerText = "Your Name is Valid";
+        span[0].style.color = "green";
+      } 
+      else 
+      {
+        span[0].innerText = "Enter valid Name Eg:- Logesh Nandhakumar";
+        span[0].style.color = "red";
+      };
+    };
+    email.onkeydown = function () {
+      const regex1 =
+        /^[a-z0-9]+(\.?[a-z0-9]+)@([a-z]+)\.(christuniversity\.in)$/;
+      if (regex1.test(email.value)) {
+        span[1].innerText = "Your Email-ID is Valid";
+        span[1].style.color = "green ";
+      } else {
+        span[1].innerText = "Invalid Email-ID";
+        span[1].style.color = "red";
+      }
+    };
+
+    password.onkeydown = function () {
+      const regxpassword =
+        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+      if (regxpassword.test(password.value)) {
+        span[2].innerText = "Valid Password";
+        span[2].style.color = "green";
+      } else {
+        span[2].innerText =
+          "a minimum of 1 lower case letter [a-z] and a minimum of 1 upper case letter [A-Z] and  a minimum of 1 numeric character [0-9] and atleast 1 special character:~`!@#$%^&*()-_+={}[]|\;:<>,./?";
+        span[2].style.color = "red";
+      }
+    };
+  }
+</script>
