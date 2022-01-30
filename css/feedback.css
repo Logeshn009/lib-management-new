@@ -123,9 +123,128 @@
   top: 5px;
   width: 5px;
   height: 10px;
-  border: solid white;
+  border: solid rgb(43, 42, 42);
   border-width: 0 3px 3px 0;
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+@media (min-width: 320px) and (max-width: 2000px) {
+  body {
+    background: #d6c67ecc;
+    background-size: cover;
+    margin: 0px;
+    padding: 10px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    /* background-size: 100% 100%; */
+  }
+  form {
+    border-radius: 25px;
+    border: 20px outset #ee390f;
+    padding: 20px;
+    width: 200px;
+    height: 150px;
+  }
+
+  .box {
+    width: 700px;
+    height: 2000px;
+    padding: 30px;
+    position: absolute;
+    box-shadow: none;
+    top: 150%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background:  #cacaa5f6;
+    text-align: center;
+  }
+
+  .box h1 {
+    color: rgb(10, 10, 10);
+    text-transform: uppercase;
+    font-weight: 800;
+    font-size: xx-large;
+  }
+
+  .box h2 {
+    color: rgb(10, 10, 10);
+    font-weight: 800;
+    font-size: x-large;
+  }
+  section {
+    width: 100px;
+    height: 100%;
+    margin: 100px auto;
+    margin-top: 50px;
+    margin-bottom: 50px;
+  }
+  div {
+    width: 100%;
+    margin: 15px auto;
+  }
+  label {
+    padding: 10px;
+    font-size: 155px;
+    color: rgb(0, 0, 0);
+    font-weight: 700;
+    font-size: large;
+  }
+  .box input[type="text"],
+  .box input[type="email"],
+  .box input[type="password"] {
+    border: 0;
+    background: white;
+    display: block;
+    margin: 15px auto;
+    text-align: center;
+    border: 5px solid #ee390f;
+    padding: 14px 20px;
+    width: 300px;
+    outline: none;
+    color: black;
+    border-radius: 24px;
+    transition: 0.25px;
+  }
+  .box input[type="text"]:focus,
+  .box input[type="email"]:focus,
+  .box input[type="password"]:focus {
+    width: 350px;
+    border-color: #f9b700;
+  }
+  .box button[type="submit"],
+  .box button[type="reset"] {
+    border: 0;
+    background: none;
+    display: unset;
+    margin: 50px auto;
+    text-align: center;
+    border: 5px solid #f9b700;
+    padding: 14px 30px;
+    outline: none;
+    color: rgb(255, 255, 255);
+    border-radius: 24px;
+    transition: 0.25px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 15px;
+  }
+  .box button[type="submit"]:hover,
+  .box button[type="reset"]:hover {
+    background-image: linear-gradient(
+      to right,
+      #700fee 0%,
+      #f9b700 51%,
+      #ee390f 100%
+    );
+  }
+  span {
+    display: outset;
+    margin-left: 10px;
+    color: red;
+    text-align: center;
+    font-size: 20px;
+    font-style: italic;
+  }
 }

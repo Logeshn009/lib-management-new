@@ -9,10 +9,13 @@
   </head>
   <body>
     <section>
-      <form class="box" action="" method="get">
+      <form class="box">
         <h1>Christ University - Bangalore</h1>
-        <h3>Campus Feedback</h3>
+        <h2>-----------------------------------------------------</h2>
+        <h2>Campus Feedback Form</h2>
+        <h2>-----------------------------------------------------</h2>
         <br />
+        <div>
           <label for="fname">Enter Name</label>
           <input type="text" id="fname" placeholder="Name" />
           <span></span>
@@ -28,7 +31,7 @@
           <span></span>
         </div>
         <div>
-          <h1>What do you like about the Christ University campus?</h1>
+          <h2>What do you like about the Christ University campus?</h2>
           <label class="container1"
             >Students
             <input type="checkbox" checked="checked" />
@@ -55,8 +58,9 @@
             <span class="checkmark1"></span>
           </label>
         </div>
+        <br />
         <div>
-          <h1>What made you interested in the Christ University?</h1>
+          <h2>What made you interested in the Christ University?</h2>
           <label class="container"
             >Friends
             <input type="radio" checked="checked" name="radio" />
@@ -78,66 +82,61 @@
             <span class="checkmark"></span>
           </label>
         </div>
+        <br />
         <div>
-          <textarea rows="10" cols="50" name="comment" form="usrform">
+          <h2>Add Comments</h2>
+          <textarea rows="10" cols="80" name="comment" form="usrform">
                 Add comments...</textarea
           >
         </div>
         <div>
-          <button for="submit">Submit</button>
-          <span></span>
+          <button onclick="myfunction()" type="submit">Submit</button>
+          <button type="reset" value="Reset">Reset</button>
         </div>
-        <div>
-          <div>
-            <button for="reset">Submit</button>
-            <span></span>
-          </div>
-          <div>
       </form>
     </section>
   </body>
 </html>
 <script>
-  function myfunction() {
-    var fname = document.getElementById("fname");
-    var email = document.getElementById("email");
-    var psw = document.getElementById("password");
-    var span = document.getElementsByTagName("span");
-    fname.onkeydown = function () {
-      const regexname1 = /^[a-zA-Z]+(\s[a-zA-Z]+)+?$/;
-      if (regexname1.test(fname.value)) {
-        span[0].innerText = "Your Name is Valid";
-        span[0].style.color = "green";
-      } 
-      else 
-      {
-        span[0].innerText = "Enter valid Name Eg:- Logesh Nandhakumar";
-        span[0].style.color = "red";
-      };
-    };
-    email.onkeydown = function () {
-      const regex1 =
-        /^[a-z0-9]+(\.?[a-z0-9]+)@([a-z]+)\.(christuniversity\.in)$/;
-      if (regex1.test(email.value)) {
-        span[1].innerText = "Your Email-ID is Valid";
-        span[1].style.color = "green ";
-      } else {
-        span[1].innerText = "Invalid Email-ID";
-        span[1].style.color = "red";
-      }
-    };
+  var fname = document.getElementById("fname");
+  var email = document.getElementById("email");
+  var psw = document.getElementById("password");
+  var span = document.getElementsByTagName("span");
+  fname.onkeydown = function () {
+    const regexname1 = /^[a-zA-Z]+(\s[a-zA-Z]+)+?$/;
+    if (regexname1.test(fname.value)) {
+      span[0].innerText = "Your Name is Valid";
+      span[0].style.color = "green";
+    } else {
+      span[0].innerText = "Enter valid Name Eg:- Logesh Nandhakumar";
+      span[0].style.color = "red";
+    }
+  };
+  email.onkeydown = function () {
+    const regex1 = /^[a-z0-9]+(\.?[a-z0-9]+)@([a-z]+)\.(christuniversity\.in)$/;
+    if (regex1.test(email.value)) {
+      span[1].innerText = "Your Email-ID is Valid";
+      span[1].style.color = "green ";
+    } else {
+      span[1].innerText =
+        "Invalid Email-ID Eg:- logesh.nandhakumar@mca.christuniversity.in";
+      span[1].style.color = "red";
+    }
+  };
 
-    password.onkeydown = function () {
-      const regxpassword =
-        /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
-      if (regxpassword.test(password.value)) {
-        span[2].innerText = "Valid Password";
-        span[2].style.color = "green";
-      } else {
-        span[2].innerText =
-          "a minimum of 1 lower case letter [a-z] and a minimum of 1 upper case letter [A-Z] and  a minimum of 1 numeric character [0-9] and atleast 1 special character:~`!@#$%^&*()-_+={}[]|\;:<>,./?";
-        span[2].style.color = "red";
-      }
-    };
+  password.onkeydown = function () {
+    const regxpassword =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    if (regxpassword.test(password.value)) {
+      span[2].innerText = "Valid Password";
+      span[2].style.color = "green";
+    } else {
+      span[2].innerText =
+        "a minimum of 1 lower case letter [a-z] and a minimum of 1 upper case letter [A-Z] and  a minimum of 1 numeric character [0-9] and atleast 1 special character:~`!@#$%^&*()-_+={}[]|\;:<>,./?";
+      span[2].style.color = "red";
+    }
+  };
+  function myFunction() {
+    alert("Registered!!!");
   }
 </script>
