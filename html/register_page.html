@@ -7,14 +7,14 @@
       name="viewport"
       content="width=device-width, initial-scale=1.0"
     />
-    <title>Student Login | Deesh School</title>
+    <title>Registration Form | Deesh School</title>
     <link rel="stylesheet" href="/css/register_page.css" />
     <script src="https://kit.fontawesome.com/a076d05399.js"></script>
   </head>
   <body>
     <div class="container">
       <div class="wrapper">
-        <div class="title"><span>Login</span></div>
+        <div class="title"><span>New Registration</span></div>
         <!-- form tag -->
         <form action="#">
           <!-- First name -->
@@ -31,24 +31,35 @@
             <span></span>
           </div>
           <br />
+          <div class="row">
+            <!-- phone number -->
+            <i class="fas fa-mobile-alt"></i>
+            <input
+              type="number"
+              placeholder="Phone-Number"
+              id="number"
+              required
+            /><span></span>
+          </div>
+          <br />
           <!-- set password -->
           <div class="row">
             <i class="fas fa-lock"></i>
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Set Password"
               id="password"
               required
             /><span></span>
           </div>
           <br />
-          <div class="pass"><a href="#">Forgot password?</a></div>
           <!-- Register button -->
           <div class="row button">
-            <input type="submit" value="Login" />
+            <input type="submit" value="Register" />
           </div>
           <div class="signup-link">
-            New User? <a href="/html/register_page.html">Signup</a>
+            Already have an account?
+            <a href="/html/login-page.html">Login now</a>
           </div>
         </form>
       </div>
@@ -59,6 +70,7 @@
 <script>
   var fname = document.getElementById("fname");
   var email = document.getElementById("email");
+  var number = document.getElementById("number");
   var password = document.getElementById("password");
   var span = document.getElementsByTagName("span");
   fname.onkeydown = function () {
@@ -67,7 +79,7 @@
       span[1].innerText = "Your Name is Valid";
       span[1].style.color = "green";
     } else {
-      span[1].innerText = "Enter only Alphabetic Characters";
+      span[1].innerText = "Enter only Alphabetic characters";
       span[1].style.color = "red";
     }
   };
@@ -84,7 +96,7 @@
   number.onkeydown = function () {
     const regnum = /^[0-9]{10}$/;
     if (regnum.test(number.value)) {
-      span[3].innerText = "Your Number is Valid";
+      span[3].innerText = "Your Phone Number is Valid";
       span[3].style.color = "green";
     } else {
       span[3].innerText = "Invalid Phone Number";
@@ -95,10 +107,10 @@
     const regxpsw =
       /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
     if (regxpsw.test(password.value)) {
-      span[4].innerText = "Valid Password";
+      span[4].innerText = "Valid password";
       span[4].style.color = "green";
     } else {
-      span[4].innerText = "Invalid Password";
+      span[4].innerText = "Set Password with atleast 8 characters";
       span[4].style.color = "red";
     }
   };

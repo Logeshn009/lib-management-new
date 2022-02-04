@@ -5,20 +5,234 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <style>
+      body {
+        align-items: center;
+        background-color: none;
+        display: flex;
+        justify-content: center;
+        height: 100vh;
+      }
+
+      .form {
+        background-color: #15172b;
+        border-radius: 20px;
+        box-sizing: border-box;
+        height: 500px;
+        padding: 20px;
+        width: 420px;
+      }
+
+      .title {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 36px;
+        font-weight: 600;
+        margin-top: 30px;
+      }
+
+      .subtitle {
+        color: #eee;
+        font-family: sans-serif;
+        font-size: 16px;
+        font-weight: 600;
+        margin-top: 10px;
+      }
+
+      .input-container {
+        height: 50px;
+        position: relative;
+        width: 100%;
+      }
+
+      .ic1 {
+        margin-top: 40px;
+      }
+
+      .ic2 {
+        margin-top: 30px;
+      }
+
+      .input {
+        background-color: #303245;
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        font-size: 18px;
+        height: 100%;
+        outline: 0;
+        padding: 4px 20px 0;
+        width: 100%;
+      }
+
+      .cut {
+        background-color: #15172b;
+        border-radius: 10px;
+        height: 20px;
+        left: 20px;
+        position: absolute;
+        top: -20px;
+        transform: translateY(0);
+        transition: transform 200ms;
+        width: 76px;
+      }
+
+      .cut-short {
+        width: 50px;
+      }
+
+      .input:focus ~ .cut,
+      .input:not(:placeholder-shown) ~ .cut {
+        transform: translateY(8px);
+      }
+
+      .placeholder {
+        color: #65657b;
+        font-family: sans-serif;
+        left: 20px;
+        line-height: 14px;
+        pointer-events: none;
+        position: absolute;
+        transform-origin: 0 50%;
+        transition: transform 200ms, color 200ms;
+        top: 20px;
+      }
+
+      .input:focus ~ .placeholder,
+      .input:not(:placeholder-shown) ~ .placeholder {
+        transform: translateY(-30px) translateX(10px) scale(0.75);
+      }
+
+      .input:not(:placeholder-shown) ~ .placeholder {
+        color: #808097;
+      }
+
+      .input:focus ~ .placeholder {
+        color: #dc2f55;
+      }
+
+      .submit {
+        background-color: rgb(44, 221, 0);
+        border-radius: 12px;
+        border: 0;
+        box-sizing: border-box;
+        color: #eee;
+        cursor: pointer;
+        font-size: 18px;
+        height: 50px;
+        margin-top: 38px;
+        outline: 0;
+        text-align: center;
+        width: 100%;
+      }
+
+      .submit:active {
+        background-color: #06b;
+      }
+    </style>
   </head>
   <body>
-    <input type="button" value="Set Cookies" onclick="setCookie()" />
-    <input type="button" value="Get Cookies" onclick="getCookie()" />
+    <select id="demo" onchange="show()">
+      <option value="Select Color">Select Color</option>
+      <option value="red">Red</option>
+      <option value="green">Green</option>
+      <option value="blue">Blue</option>
+    </select>
     <script>
-      function setCookie() {
-        document.cookie = "email-id=logesh.n@mca.christuniversity.in";
+      function show() {
+        var value = document.getElementById("demo").value;
+        if (value != "Select Color") {
+          document.bgColor = value;
+          document.cookie =
+            "color=" + value + ";expires=Fri,11 Feb 2022 01:00:00 UTC;";
+        }
       }
+      window.onload = function () {
+        if (document.cookie.length != 0) {
+          var a = document.cookie.split("=");
+          document.getElementById("demo").value = a[1];
+          document.bgColor = a[1];
+        }
+      };
+    </script>
+    <div class="form">
+      <div class="subtitle">Cookies</div>
+      <button
+        type="button"
+        class="submit"
+        value="Display Cookies"
+        onclick="getCookie()"
+      >
+        Display Cookies
+      </button>
+      <button
+        type="button"
+        class="submit"
+        value="Display Cookies"
+        onclick="createcookie1()"
+      >
+        Create Cookie 1
+      </button>
+      <button
+        type="button"
+        class="submit"
+        value="Display Cookies"
+        onclick="createcookie2()"
+      >
+        Create Cookie 2
+      </button>
+      <button
+        type="button"
+        class="submit"
+        value="Display Cookies"
+        onclick="deleteCookie1()"
+      >
+        Delete Cookies 1
+      </button>
+      <button
+        type="button"
+        class="submit"
+        value="Display Cookies"
+        onclick="deleteCookie2()"
+      >
+        Delete Cookies 2
+      </button>
+    </div>
+    <script>
+      localStorage.setItem("Name", "Logesh N");
+      localStorage.setItem("Class", 'MCA"A"');
+      console.log(localStorage.getItem("Name"));
+      //localStorage.removeItem('Name');
+
+      sessionStorage.setItem("Lab", "Cookies");
+      sessionStorage.setItem("subject", "WEB STACK DEVELOPMENT");
+
       function getCookie() {
         if (document.cookie.length != 0) {
           alert(document.cookie);
         } else {
           alert("No cookies");
         }
+      }
+      function createcookie1() {
+        document.cookie =
+          "firstname=Dinesh;expires=Wed, 11 Feb 2022 1:00:00 GMT";
+        cookie1 = document.cookie;
+      }
+      function createcookie2() {
+        document.cookie = "lastname=Kumar;expires=Wed, 11 Feb 2022 1:00:00 GMT";
+        cookie2 = document.cookie;
+      }
+      function deleteCookie1() {
+        document.cookie = cookie1 + ";max-age=0";
+        cookie1 = document.cookie;
+        alert("Cookie1 is deleted");
+      }
+      function deleteCookie2() {
+        document.cookie = cookie2 + ";max-age=0";
+        cookie2 = document.cookie;
+        alert("Cookie2 is deleted");
       }
     </script>
   </body>
