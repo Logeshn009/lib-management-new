@@ -72,7 +72,7 @@
             };
   
             // books.xml is the external xml file
-            xmlhttp.open("GET", "books.xml", true);
+            xmlhttp.open("GET", "/xml-files/books.xml", true);
             xmlhttp.send();
         }
   
@@ -118,7 +118,7 @@
         return xhttp.responseXML;
       }
       function remove(node) {
-        xmlDoc1 = loadXMLdoc("books.xml");
+        xmlDoc1 = loadXMLdoc("/xml-files/books.xml");
         y = xmlDoc1.getElementsByTagName(node)[0];
         xmlDoc1.documentElement.removeChild(y);
         alert("The 1st Element " + node + " "+"has been removed!");

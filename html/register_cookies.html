@@ -1,44 +1,177 @@
 <!DOCTYPE html>
-<html>
-<head>
-<script>
-function setCookie(cname,cvalue,exdays) {
-  const d = new Date();
-  d.setTime(d.getTime() + (exdays*24*60*60*1000));
-  let expires = "expires=" + d.toUTCString();
-  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
-}
-
-function getCookie(cname) {
-  let name = cname + "=";
-  let decodedCookie = decodeURIComponent(document.cookie);
-  let ca = decodedCookie.split(';');
-  for(let i = 0; i < ca.length; i++) {
-    let c = ca[i];
-    while (c.charAt(0) == ' ') {
-      c = c.substring(1);
-    }
-    if (c.indexOf(name) == 0) {
-      return c.substring(name.length, c.length);
-    }
-  }
-  return "";
-}
-
-function checkCookie() {
-  let user = getCookie("username");
-  if (user != "") {
-    alert("Welcome again " + user);
-  } else {
-     user = prompt("Please enter your name:","");
-     if (user != "" && user != null) {
-       setCookie("username", user, 30);
-     }
-  }
-}
-</script>
-</head>
-
-<body onload="checkCookie()"></body>
-
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8" />
+    <meta
+      http-equiv="X-UA-Compatible"
+      name="viewport"
+      content="width=device-width, initial-scale=1.0"
+    />
+    <title>Registration Form | Deesh School</title>
+    <link rel="stylesheet" href="/css/register_page.css" />
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+  </head>
+  <body>
+    <div class="container">
+      <div class="wrapper">
+        <div class="title"><span>New Registration</span></div>
+        <!-- form tag -->
+        <form action="#">
+          <!-- First name -->
+          <div class="row">
+            <i class="fas fa-user-circle"></i>
+            <input
+              type="text"
+              placeholder="Full Name"
+              id="fname"
+              required
+              onclick="createcookie1()"
+            />
+            <span></span>
+          </div>
+          <br />
+          <!-- email id -->
+          <div class="row">
+            <i class="fas fa-user"></i>
+            <input
+              type="email"
+              id="email"
+              placeholder="Email-ID"
+              onclick="createcookie2()"
+              required
+            />
+            <span></span>
+          </div>
+          <br />
+          <div class="row">
+            <!-- phone number -->
+            <i class="fas fa-mobile-alt"></i>
+            <input
+              type="number"
+              placeholder="Phone-Number"
+              id="number"
+              required
+            /><span></span>
+          </div>
+          <br />
+          <!-- set password -->
+          <div class="row">
+            <i class="fas fa-lock"></i>
+            <input
+              type="password"
+              placeholder="Set Password"
+              id="password"
+              required
+            /><span></span>
+          </div>
+          <br />
+          <!-- Register button -->
+          <div class="row button">
+            <input type="submit" value="Register" />
+          </div>
+          <div class="signup-link">
+            Already have an account?
+            <a href="/html/login-page.html">Login now</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </body>
 </html>
+
+
+<script>
+  function show() {
+    var value = document.getElementById("demo").value;
+    if (value != "Select Color") {
+      document.bgColor = value;
+      document.cookie =
+        "color=" + value + ";expires=Fri,11 Feb 2022 01:00:00 UTC;";
+    }
+  }
+  window.onload = function () {
+    if (document.cookie.length != 0) {
+      var a = document.cookie.split("=");
+      document.getElementById("demo").value = a[1];
+      document.bgColor = a[1];
+    }
+  };
+</script>
+<script>
+  localStorage.setItem("Name", "Logesh N");
+  localStorage.setItem("Class", 'MCA"A"');
+  localStorage.setItem("age", "21");
+  localStorage.setItem("gender", "male");
+  localStorage.setItem("phone no", "7548817148");
+  localStorage.setItem("email-id", "logesh.n@mca.christuniversity.in");
+  console.log(localStorage.getItem("Name"));
+  console.log(localStorage.getItem("Class"));
+  console.log(localStorage.getItem("age"));
+  console.log(localStorage.getItem("gender"));
+  console.log(localStorage.getItem("phone no"));
+  console.log(localStorage.getItem("email-id"));
+  //localStorage.removeItem('Name');
+
+  sessionStorage.setItem("Topic", "Cookies");
+  sessionStorage.setItem("subject", "WEB STACK DEVELOPMENT");
+
+  function createcookie1() {
+    document.cookie = "firstname=Dinesh;expires=Wed, 11 Feb 2022 1:00:00 GMT";
+    cookie1 = document.cookie;
+  }
+  function createcookie2() {
+    document.cookie = "lastname=Kumar;expires=Wed, 11 Feb 2022 1:00:00 GMT";
+    cookie2 = document.cookie;
+  }
+</script>
+<script>
+  var fname = document.getElementById("fname");
+  var email = document.getElementById("email");
+  var number = document.getElementById("number");
+  var password = document.getElementById("password");
+  var span = document.getElementsByTagName("span");
+  fname.onkeydown = function () {
+    const regexname1 = /^[a-zA-Z]+(\s[a-zA-Z]+)+?$/;
+    if (regexname1.test(fname.value)) {
+      span[1].innerText = "Your Name is Valid";
+      span[1].style.color = "green";
+    } else {
+      span[1].innerText = "Enter only Alphabetic characters";
+      span[1].style.color = "red";
+    }
+  };
+  email.onkeydown = function () {
+    const regex1 = /^[a-z0-9](\.?[a-z0-9]){3,}@deeshschool\.in$/;
+    if (regex1.test(email.value)) {
+      span[2].innerText = "Your Email-ID is Valid";
+      span[2].style.color = "green ";
+    } else {
+      span[2].innerText = "Invalid Email-ID";
+      span[2].style.color = "red";
+    }
+  };
+  number.onkeydown = function () {
+    const regnum = /^[0-9]{10}$/;
+    if (regnum.test(number.value)) {
+      span[3].innerText = "Your Phone Number is Valid";
+      span[3].style.color = "green";
+    } else {
+      span[3].innerText = "Invalid Phone Number";
+      span[3].style.color = "red";
+    }
+  };
+  password.onkeydown = function () {
+    const regxpsw =
+      /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])(?=.{8,})/;
+    if (regxpsw.test(password.value)) {
+      span[4].innerText = "Valid password";
+      span[4].style.color = "green";
+    } else {
+      span[4].innerText = "Set Password with atleast 8 characters";
+      span[4].style.color = "red";
+    }
+  };
+  function myFunction() {
+    alert("Registered!!!");
+  }
+</script>
