@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Book details</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="/css/json file-remotely-using-ang js/library_json.js"></script>
+    <link href="/css/jsonfile.css" rel="stylesheet" />
+  </head>
+  <body ng-app="Mybooks">
+    <!-- it would still work if we remove Myemp, but when we mention
+    it as the Myemp it works are the main method all the body tags which 
+  we have used will still work because we have used ng-app 
+ng-controller only requests the model so we have to mention the ng-controller
+-->
+
+  <!-- Main Content -->
+  <div class="container" ng-app="Book-details">
+    
+    <div class="content" ng-controller="booksCtrl">
+      Rows to Display:<input
+        type="number"
+        step="1"
+        min="0"
+        max="5"
+        ng-model="rowlimit"
+      /><br /><br />
+      Search:<input
+        type="text"
+        placeholder="Search Books"
+        ng-model="search"
+      /><br /><br />
+      <!-- to display the number of chac
+      how do we get elemetn by id 
+    so using ni-model to get the elements in Angularjs-->
+      Enter the Number of characters:<input
+        type="text"
+        ng-model="limit"
+      /><br /><br />
+      <table>
+        <tr>
+          <th>Book Name</th>
+          <th>Book Category</th>
+          <th>Author</th>
+          <th>Year</th>
+          <th>ISBN</th>
+          <!--"number"to display as decimal-->
+          <th>Price (Currency)</th>
+          <!--"Salary" for the symbol-->
+        </tr>
+        <tbody>
+          <tr
+            ng-repeat="bk in books| orderBy: 'Bookname'|limitTo:rowlimit|filter:search"
+          >
+            <!--ng is a two way data binging ng repeat is a for loop to call all the data one by one
+            all the employee info is availabe in emp
+          make sure its in same order as js file
+        limit is the option where the input it taken-->
+            <td>{{bk.bookname|myfilter:limit}}</td>
+            <!--meaning of | symbol is it givent the output of the name to myfilter-->
+            <td>{{bk.bookcategory"}}</td>
+            <td>{{bk.author|lowercase}}</td>
+            <td>{{bk.year}}</td>
+            <td>{{bk.isbn}}</td>
+            <td>&#8377;{{bk.price|number:2}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

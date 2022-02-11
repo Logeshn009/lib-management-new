@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+    <script src="test.js"></script>
+  </head>
+  <body ng-app="Mca">
+    <!-- ng means angular, ng = derictives(by using derectives we ca do many things
+        (2way binding where any changes in view/model will change in view/model
+        this can be acchieved using ng model ) )-->
+    <div ng-controller="Mcactrl">
+      Firstname:<input type="text" ng-model="firstname" /><br />
+      LastName:<input type="text" ng-model="lastname" /><br />
+      <p>{{lastname}}</p>
+      <!--this is called an expression-->
+      <input type="button" value="{{firstname}}" />
+    </div>
+  </body>
+</html>
