@@ -1,15 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book details</title>
     <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
-    <script src="/css/json file-remotely-using-ang js/main.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="/json files/book.json"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
-
     <style type="text/css">
         h1,
         h3 {
@@ -48,7 +45,7 @@
   <body>
 
   <!-- Main Content -->
-  <div class="container" ng-app="Book-details"> 
+  <div class="container" ng-app="Bookdetails"> 
     <div class="content" ng-controller="mainCtrl">
         <center><p><h3>LIBRARY MANAGEMENT</h3></p></center>
         <br>rows:<br><input type="=number" step="1" min="0" max="5" placeholder="enter no of rows" ng-model="rowlimit"/><br>
@@ -71,13 +68,13 @@
             placeholder="search by Price"></td>
            </tr>
           
-            <tr ng-repeat="bk in books| orderBy: 'Bookname'|limitTo:rowlimit|filter:search">
+            <tr ng-repeat="bk in book| orderBy: 'bookname'|limitTo:rowlimit|filter:search">
             <!--ng is a two way data binging ng repeat is a for loop to call all the data one by one
             all the employee info is availabe in emp
           make sure its in same order as js file
         limit is the option where the input it taken-->
             <td>{{bk.bookname|uppercase}}</td>
-            <td>{{bk.bookcategory"}}</td>
+            <td>{{bk.bookcategory}}</td>
             <td>{{bk.author|lowercase}}</td>
             <td>{{bk.year}}</td>
             <td>{{bk.isbn}}</td>

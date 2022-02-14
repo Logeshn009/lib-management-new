@@ -5,49 +5,79 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book details</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
-    <script src="/css/json file-remotely-using-ang js/library_json.js"></script>
-    <link href="/css/jsonfile.css" rel="stylesheet" />
+    <link href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script src="/css/json file-remotely-using-ang js/main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+
+    <style type="text/css">
+        h1,
+        h3 {
+          color: #fff;
+          background: rgb(208, 42, 42);
+          padding: 15px 10px;
+          margin-bottom: 20px;
+        }
+        table {
+      border-collapse: collapse;
+      width:auto;
+    
+      border-radius: 5px;
+      padding: 5px;
+    
+    }
+        body{
+          background-color: rgb(223, 158, 62);
+        }
+    
+    th, td {
+      text-align: left;
+      padding: 10px;
+    
+      
+    }
+    
+    tr:nth-child(even){background-color: #f2f2f2}
+    tr:nth-child(odd){background-color:rgb(123, 169, 238)}
+    th {
+      background-color: #04AA6D;
+      color:whitesmoke;
+    }
+      </style>
   </head>
-  <body ng-app="Mybooks">
-    <!-- it would still work if we remove Myemp, but when we mention
-    it as the Myemp it works are the main method all the body tags which 
-  we have used will still work because we have used ng-app 
-ng-controller only requests the model so we have to mention the ng-controller
--->
+  <body>
 
   <!-- Main Content -->
-  <div class="container" ng-app="Book-details">
-    
-    <div class="content" ng-controller="booksCtrl">
+  <div class="container" ng-app="Book-details"> 
+    <div class="content" ng-controller="mainCtrl">
+        <center><p><h3>LIBRARY MANAGEMENT</h3></p></center>
       Rows to Display:<input
         type="number"
         step="1"
         min="0"
         max="5"
+        placeholder="enter no of rows"
         ng-model="rowlimit"
       /><br /><br />
-      Search:<input
+      Search:<br><input
         type="text"
         placeholder="Search Books"
         ng-model="search"
       /><br /><br />
-      <!-- to display the number of chac
-      how do we get elemetn by id 
-    so using ni-model to get the elements in Angularjs-->
-      Enter the Number of characters:<input
-        type="text"
-        ng-model="limit"
-      /><br /><br />
+
+      <h3>BOOKS LIST</h3>
       <table>
         <tr>
-          <th>Book Name</th>
-          <th>Book Category</th>
-          <th>Author</th>
-          <th>Year</th>
-          <th>ISBN</th>
+          <td>Book Name<br><br><input type="text" ng-model="search.bookname"
+            placeholder="search by book name"></td>
+          <td>Book Category<br><br><input type="text" ng-model="search.bookcategory"
+            placeholder="search by book category"></td>
+          <td>Author<br><br><input type="text" ng-model="search.author"
+            placeholder="search by book name"></td>
+          <td>Year</td>
+          <td>ISBN</td>
           <!--"number"to display as decimal-->
-          <th>Price (Currency)</th>
+          <td>Price (Currency)</td>
           <!--"Salary" for the symbol-->
         </tr>
         <tbody>

@@ -58,6 +58,6 @@ angular.module("Mybooks",[])
     ];
     $scope.books=books;
     $scope.rowlimit=5;
-    //to change 6 rows
+    //to change 5 rows
 
 });
